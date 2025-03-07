@@ -17,4 +17,4 @@ class Config:
         return self.config["DEFAULT"].get("GROQ_MODEL_OPTIONS").split(",")
 
     def get_page_title(self):
-        return self.config["DEFAULT"].get("PAGE_TITLE").split(",") 
+        return self.config["DEFAULT"].get("PAGE_TITLE")
