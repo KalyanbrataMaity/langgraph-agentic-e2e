@@ -4,7 +4,6 @@ from langchain_core.prompts import ChatPromptTemplate
 from src.langgraphagenticai.state.state import State
 from src.langgraphagenticai.nodes.basic_chatbot_node import BasicChatbotNode
 
-
 class GraphBuilder:
     def __init__(self, model):
         self.llm = model

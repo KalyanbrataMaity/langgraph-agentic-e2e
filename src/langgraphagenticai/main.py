@@ -1,6 +1,7 @@
 import streamlit as st 
 import json
 
+from src.langgraphagenticai.ui.streamlit.display_result import DisplayResultStreamlit
 from src.langgraphagenticai.ui.streamlit.load_ui import LoadStreamlitUI
 from src.langgraphagenticai.llms.groq_llm import GroqChatLLM
 from src.langgraphagenticai.graph.graph_builder import GraphBuilder
@@ -48,11 +49,10 @@ def load_langgraph_agenticai_app():
             graph_builder = GraphBuilder(model)
             try:
                 graph = graph_builder.setup_graph(usecase)
+                DisplayResultStreamlit(usecase, graph, user_message).display_result_in_ui()
             except Exception as e:
-                st.error(f"Error: Graph setup failed - {e}")
+                st.error(f"Error: Graph setup failed {e}")
                 return
 
         except Exception as e:
             raise ValueError(f"Error Occurred with Exception: {e}")
-
-    print(user_input)
